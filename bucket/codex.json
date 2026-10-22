@@ -14,5 +14,19 @@
             "hash": "a7261e65f4a96d8f4ca65a069c6cf2dc2c33defc341e48078acefda9461fffe4",
             "bin": "codex-aarch64-unknown-linux-musl"
         }
+    },
+    "checkver": {
+        "github": "https://github.com/openai/codex",
+        "regex": "^(?=(?<tag>.*)$)rust-v(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-x86_64-unknown-linux-musl.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-aarch64-unknown-linux-musl.tar.gz"
+            }
+        }
     }
 }
