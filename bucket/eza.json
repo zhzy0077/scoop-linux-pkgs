@@ -13,5 +13,19 @@
             "hash": "b31a125bb27c807f821ed0593c16ee6e67691e134234fe86021cd5f4f0f5deee"
         }
     },
-    "bin": "eza"
+    "bin": "eza",
+    "checkver": {
+        "github": "https://github.com/eza-community/eza",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/eza-community/eza/releases/download/$matchTag/eza_x86_64-unknown-linux-musl.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/eza-community/eza/releases/download/$matchTag/eza_aarch64-unknown-linux-gnu.tar.gz"
+            }
+        }
+    }
 }

@@ -13,5 +13,19 @@
             "hash": "078cc9cc8cedb6c45edb84c0f5bad53518c610859c73bdb3009a52b89652c103"
         }
     },
-    "bin": "zoxide"
+    "bin": "zoxide",
+    "checkver": {
+        "github": "https://github.com/ajeetdsouza/zoxide",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ajeetdsouza/zoxide/releases/download/$matchTag/zoxide-$version-x86_64-unknown-linux-musl.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/ajeetdsouza/zoxide/releases/download/$matchTag/zoxide-$version-aarch64-unknown-linux-musl.tar.gz"
+            }
+        }
+    }
 }
