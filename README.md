@@ -13,8 +13,6 @@ scoop bucket add main
 scoop install main/ripgrep main/jq
 ```
 
-Install GitHub Copilot CLI with `scoop install main/copilot-cli`, then run `copilot` and use `/login` to authenticate. It requires an active Copilot subscription and is subject to the [GitHub Copilot CLI License](https://github.com/github/copilot-cli/blob/v1.0.102/LICENSE.md). The standalone Linux binaries bundle their runtime; no separate Node.js installation is needed.
-
 An explicit Git repository argument, `SCOOP_MAIN_BUCKET` or config `main_bucket_url` can select another source. Built-in bootstrap persists its selected source in `main_bucket_url`; `scoop config rm main_bucket_url` removes that override. Package-manager release artifacts/catalogs are configured separately.
 
 ## Automatic package updates
