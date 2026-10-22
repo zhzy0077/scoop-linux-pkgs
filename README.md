@@ -11,10 +11,7 @@ A bucket of native Linux CLI packages for [Scoop on Linux](https://github.com/zh
 ```sh
 scoop bucket add main
 scoop install main/ripgrep main/jq
-scoop install main/pi
 ```
-
-The pi coding agent uses standalone upstream archives (no Node.js or Bun installation required), retaining the executable and companion resources under `extract_dir: "pi"`. Both Linux artifacts are verified against the release's [`SHA256SUMS`](https://github.com/earendil-works/pi/releases/download/v1.4.0/SHA256SUMS).
 
 An explicit Git repository argument, `SCOOP_MAIN_BUCKET` or config `main_bucket_url` can select another source. Built-in bootstrap persists its selected source in `main_bucket_url`; `scoop config rm main_bucket_url` removes that override. Package-manager release artifacts/catalogs are configured separately.
 
