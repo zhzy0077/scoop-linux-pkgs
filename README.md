@@ -2,7 +2,7 @@
 
 Canonical repository: **https://github.com/zhzy0077/scoop-linux-pkgs**.
 
-Ten pinned upstream Linux CLI packages are available for native `64bit` (x86-64) and `arm64` (aarch64): bat, delta, eza, fd, fzf, jq, just, ripgrep, yq and zoxide. Download URLs and SHA-256 checksums are stored in each package manifest under `bucket/`.
+A bucket of native Linux CLI packages for [Scoop on Linux](https://github.com/zhzy0077/scoop-linux). Each manifest under `bucket/` declares its supported architectures, download URLs and SHA-256 checksums.
 
 ## Use
 
