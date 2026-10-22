@@ -1,16 +1,16 @@
 {
-    "version": "0.9.8",
+    "version": "0.10.0",
     "description": "zoxide: portable upstream Linux CLI release",
     "homepage": "https://github.com/ajeetdsouza/zoxide",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
-            "hash": "4092ee38aa1efde42e4efb2f9c872df5388198aacae7f1a74e5eb5c3cc7f531c"
+            "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz",
+            "hash": "2d93385b99f3e82cf2701609a1bffcad863fbeb75aa3fe7eb6be4d29be68b1ae"
         },
         "arm64": {
-            "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.9.8/zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
-            "hash": "078cc9cc8cedb6c45edb84c0f5bad53518c610859c73bdb3009a52b89652c103"
+            "url": "https://github.com/ajeetdsouza/zoxide/releases/download/v0.10.0/zoxide-0.10.0-aarch64-unknown-linux-musl.tar.gz",
+            "hash": "f1f16c5d6298d63dee467eedea1cdcd8490e43e493bea43acd416dc9033ef641"
         }
     },
     "bin": "zoxide",
