@@ -13,5 +13,22 @@
             "hash": "4dd2d8a0661df0b22f1bb9a1f9830f06b6f3b8f7d91211a1ef5d7c4f06a8b4a5"
         }
     },
-    "bin": "jq"
+    "bin": "jq",
+    "checkver": {
+        "github": "https://github.com/jqlang/jq",
+        "regex": "^(?=(?<tag>.*)$)jq\\-(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/jqlang/jq/releases/download/$matchTag/jq-linux-amd64#/jq"
+            },
+            "arm64": {
+                "url": "https://github.com/jqlang/jq/releases/download/$matchTag/jq-linux-arm64#/jq"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sum.txt"
+        }
+    }
 }

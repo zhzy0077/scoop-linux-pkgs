@@ -13,5 +13,22 @@
             "hash": "ceea73d4c86f2e5c91926ee0639157121f5360da42beeb8357783d79c2cc6a1d"
         }
     },
-    "bin": "yq"
+    "bin": "yq",
+    "checkver": {
+        "github": "https://github.com/mikefarah/yq",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/mikefarah/yq/releases/download/$matchTag/yq_linux_amd64#/yq"
+            },
+            "arm64": {
+                "url": "https://github.com/mikefarah/yq/releases/download/$matchTag/yq_linux_arm64#/yq"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums"
+        }
+    }
 }
