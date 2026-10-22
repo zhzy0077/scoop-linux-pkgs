@@ -13,5 +13,19 @@
             "hash": "634ee7cc4fa4b7447ac41e2c3ce54928d8f5214f418954e3af36f372e849c9c9"
         }
     },
-    "bin": "copilot"
+    "bin": "copilot",
+    "checkver": {
+        "github": "https://github.com/github/copilot-cli",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/github/copilot-cli/releases/download/$matchTag/copilot-linux-x64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/github/copilot-cli/releases/download/$matchTag/copilot-linux-arm64.tar.gz"
+            }
+        }
+    }
 }
