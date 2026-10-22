@@ -2,7 +2,7 @@
 
 Canonical Git repository: **https://github.com/zhzy0077/scoop-linux-pkgs**.
 
-This bucket supplies ten pinned upstream Linux CLI releases for native `64bit` (x86-64) and `arm64` (aarch64): bat, delta, eza, fd, fzf, jq, just, ripgrep, yq and zoxide. Each manifest declares exact architecture entries, SHA-256 and ordinary executable basenames.
+This bucket supplies eleven pinned upstream Linux CLI releases for native `64bit` (x86-64) and `arm64` (aarch64): bat, copilot-cli, delta, eza, fd, fzf, jq, just, ripgrep, yq and zoxide. Each manifest declares exact architecture entries, SHA-256 and ordinary executable basenames.
 
 ## Use
 
@@ -12,6 +12,8 @@ This bucket supplies ten pinned upstream Linux CLI releases for native `64bit` (
 scoop bucket add main
 scoop install main/ripgrep main/jq
 ```
+
+Install GitHub Copilot CLI with `scoop install main/copilot-cli`, then run `copilot` and use `/login` to authenticate. It requires an active Copilot subscription and is subject to the [GitHub Copilot CLI License](https://github.com/github/copilot-cli/blob/v1.0.102/LICENSE.md). The standalone Linux binaries bundle their runtime; no separate Node.js installation is needed.
 
 An explicit repository argument, `SCOOP_MAIN_BUCKET` or `main_bucket_url` can select an alternate/local Git source. Bootstrap uses the canonical default when environment/config/catalog main-source overrides are absent and persists the selected source in config `main_bucket_url`. Use `scoop config rm main_bucket_url` to remove that override. Release artifact/catalog hosting is configured separately from this bucket.
 
@@ -23,9 +25,9 @@ Publish the **contents** of the package manager's `main/` directory as this repo
 README.md
 VERIFICATION.json
 bucket/
-  bat.json       fd.json    jq.json       ripgrep.json
-  delta.json     fzf.json   just.json     yq.json
-  eza.json                  zoxide.json
+  bat.json          fd.json    jq.json       ripgrep.json
+  copilot-cli.json  fzf.json   just.json     yq.json
+  delta.json        eza.json                 zoxide.json
 ```
 
 Keep `bucket/` directly under the Git root. The payload contains the existing reviewed manifests and provenance records; it contains no release binaries or container-local release catalogs.
@@ -48,6 +50,8 @@ Maintenance tooling lives in the [package manager source repository](https://git
 - [tests/release-lifecycle.py](https://github.com/zhzy0077/scoop-linux/blob/main/tests/release-lifecycle.py) validates real native package execution and lifecycle.
 
 Review release notes, licenses, CPU/libc support and artifact layouts when advancing versions. Run maintenance in native Podman tooling containers. Artifact caches are version-isolated. The refresh script downloads both architecture artifacts over HTTPS, records SHA-256 and checks publisher checksum assets for fzf, jq, just, ripgrep and yq. `VERIFICATION.json` records each artifact's source and trust provenance. The selected bat, delta, eza, fd and zoxide releases supply no checksum asset and are explicitly pinned GitHub HTTPS trust-on-first-download. Review available publisher signatures as part of updates.
+
+Copilot CLI is maintained directly in this bucket and is not yet included in the package manager's refresh script. Its standalone GNU/Linux archives contain a root-level `copilot` executable. Both architecture downloads were hashed and matched against GitHub's release-asset SHA-256 digests; provenance remains GitHub HTTPS trust-on-first-download rather than an independent publisher checksum asset.
 
 Use a fresh cache for independent verification:
 
