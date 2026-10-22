@@ -13,5 +13,22 @@
             "hash": "d065d0df1a1f99529869fba8a5b3e0a25c1795b9007099b00dfabe29c7c1f7b6"
         }
     },
-    "bin": "just"
+    "bin": "just",
+    "checkver": {
+        "github": "https://github.com/casey/just",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/casey/just/releases/download/$matchTag/just-$version-x86_64-unknown-linux-musl.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/casey/just/releases/download/$matchTag/just-$version-aarch64-unknown-linux-musl.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
 }

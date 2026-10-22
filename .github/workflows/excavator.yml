@@ -1,0 +1,152 @@
+name: Excavator
+
+on:
+  schedule:
+    - cron: '20 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      packages:
+        description: 'Optional package names, separated by spaces or commas'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Discover and verify updates without changing manifests or publishing'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: excavator-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHON_IMAGE: docker.io/library/python@sha256:e32be0e55814a08977501ca863271d9bd02443710db8f2afaf8372e2c4508530
+    steps:
+      - name: Normalize dispatch and publication policy
+        id: dispatch
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_REF: ${{ github.ref }}
+          INPUT_DRY_RUN: ${{ toJSON(inputs.dry_run) }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          dry_run=false
+          if [[ "$EVENT_NAME" == workflow_dispatch ]]; then
+            case "$INPUT_DRY_RUN" in
+              true|'"true"') dry_run=true ;;
+              false|'"false"') dry_run=false ;;
+              *) echo 'Invalid boolean dry_run dispatch input' >&2; exit 1 ;;
+            esac
+          elif [[ "$EVENT_NAME" != schedule ]]; then
+            echo 'Unsupported updater event' >&2
+            exit 1
+          fi
+          if [[ "$dry_run" == false && "$EVENT_REF" != refs/heads/main ]]; then
+            echo 'Publication requires a main-branch invocation' >&2
+            exit 1
+          fi
+          echo "dry_run=$dry_run" >> "$GITHUB_OUTPUT"
+
+      - name: Check out current main
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Ensure Podman
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v podman >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y podman
+          fi
+          podman --version
+
+      - name: Generate complete package updates
+        id: generate
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PACKAGES: ${{ inputs.packages || '' }}
+          DRY_RUN: ${{ steps.dispatch.outputs.dry_run }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          podman run --rm --userns=keep-id --user "$(id -u):$(id -g)" \
+            --security-opt label=disable --volume "$GITHUB_WORKSPACE:/workspace:rw" \
+            --workdir /workspace --env GITHUB_TOKEN --env PACKAGES --env DRY_RUN \
+            "$PYTHON_IMAGE" python .github/update.py \
+            --report .git/excavator-result.json \
+            --summary .git/excavator-summary.md \
+            --commits .git/excavator-commits.tsv
+
+      - name: Check all generated results before publication
+        id: validate
+        if: ${{ !cancelled() && (steps.generate.outcome == 'success' || steps.generate.outcome == 'failure') }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          podman run --rm --userns=keep-id --user "$(id -u):$(id -g)" \
+            --security-opt label=disable --volume "$GITHUB_WORKSPACE:/workspace:ro" \
+            --workdir /workspace "$PYTHON_IMAGE" python .github/update.py \
+            --validate-results .git/excavator-result.json
+          git diff --check
+          git diff --cached --quiet
+          git diff --name-only | LC_ALL=C sort > .git/excavator-changed.txt
+          cut -f1 .git/excavator-commits.tsv | LC_ALL=C sort > .git/excavator-planned.txt
+          cmp .git/excavator-changed.txt .git/excavator-planned.txt
+
+      - name: Commit successful packages and push normally
+        id: publish
+        if: ${{ !cancelled() && steps.validate.outcome == 'success' && steps.dispatch.outputs.dry_run == 'false' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$GITHUB_REF" == refs/heads/main ]]
+          if [[ ! -s .git/excavator-commits.tsv ]]; then
+            echo 'No package changes to publish'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          while IFS=$'\t' read -r path message; do
+            [[ "$path" =~ ^bucket/[A-Za-z0-9][A-Za-z0-9+._-]*\.json$ ]]
+            git add -- "$path"
+            git commit -m "$message" -- "$path"
+          done < .git/excavator-commits.tsv
+          git diff --quiet
+          git push origin HEAD:main
+
+      - name: Write run summary
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -f .git/excavator-summary.md ]]; then
+            cat .git/excavator-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Excavator did not produce a package summary; inspect the failed setup/generation step.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Report partial or infrastructure failure
+        if: ${{ always() }}
+        env:
+          GENERATE_OUTCOME: ${{ steps.generate.outcome }}
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
+        shell: bash
+        run: |
+          if [[ "$GENERATE_OUTCOME" != success || "$VALIDATE_OUTCOME" != success || "$PUBLISH_OUTCOME" == failure ]]; then
+            echo 'One or more updates/checks failed; successful validated packages may already have been published.' >&2
+            exit 1
+          fi

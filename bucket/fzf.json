@@ -13,5 +13,22 @@
             "hash": "13df4d556992938a4beb340ac3b17c51c77e46db978d3071429eb77a94c581c1"
         }
     },
-    "bin": "fzf"
+    "bin": "fzf",
+    "checkver": {
+        "github": "https://github.com/junegunn/fzf",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/junegunn/fzf/releases/download/$matchTag/fzf-$version-linux_amd64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/junegunn/fzf/releases/download/$matchTag/fzf-$version-linux_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/fzf_$version_checksums.txt"
+        }
+    }
 }
