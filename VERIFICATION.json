@@ -97,6 +97,20 @@
       "verification": "publisher-sha256"
     }
   },
+  "pi": {
+    "64bit": {
+      "artifact": "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-linux-x64.tar.gz",
+      "checksum_source": "https://github.com/earendil-works/pi/releases/download/v1.4.0/SHA256SUMS",
+      "sha256": "f2e4e4329603223d03260cdb8bd5033dbdc1f73ba58ab8939db2e56546e115d2",
+      "verification": "publisher-sha256"
+    },
+    "arm64": {
+      "artifact": "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-linux-arm64.tar.gz",
+      "checksum_source": "https://github.com/earendil-works/pi/releases/download/v1.4.0/SHA256SUMS",
+      "sha256": "fa5829c7ef83ffeaebba015715c8306220f89b2aa8a00154efbba98dd5440156",
+      "verification": "publisher-sha256"
+    }
+  },
   "ripgrep": {
     "64bit": {
       "artifact": "https://github.com/BurntSushi/ripgrep/releases/download/14.1.1/ripgrep-14.1.1-x86_64-unknown-linux-musl.tar.gz",

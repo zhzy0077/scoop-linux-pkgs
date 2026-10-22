@@ -1,0 +1,19 @@
+{
+    "version": "1.4.0",
+    "description": "Coding agent CLI with read, bash, edit, write tools and session management",
+    "homepage": "https://github.com/earendil-works/pi",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-linux-x64.tar.gz",
+            "hash": "f2e4e4329603223d03260cdb8bd5033dbdc1f73ba58ab8939db2e56546e115d2",
+            "extract_dir": "pi"
+        },
+        "arm64": {
+            "url": "https://github.com/earendil-works/pi/releases/download/v1.4.0/pi-linux-arm64.tar.gz",
+            "hash": "fa5829c7ef83ffeaebba015715c8306220f89b2aa8a00154efbba98dd5440156",
+            "extract_dir": "pi"
+        }
+    },
+    "bin": "pi"
+}
