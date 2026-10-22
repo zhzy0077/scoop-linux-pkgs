@@ -15,5 +15,22 @@
             "extract_dir": "pi"
         }
     },
-    "bin": "pi"
+    "bin": "pi",
+    "checkver": {
+        "github": "https://github.com/earendil-works/pi",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/earendil-works/pi/releases/download/$matchTag/pi-linux-x64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/earendil-works/pi/releases/download/$matchTag/pi-linux-arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
 }
