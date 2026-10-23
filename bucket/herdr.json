@@ -1,0 +1,31 @@
+{
+    "version": "0.9.5",
+    "description": "Terminal runtime for coding agents",
+    "homepage": "https://github.com/herdrdev/herdr",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/herdrdev/herdr/releases/download/v0.9.5/herdr-linux-x86_64#/herdr",
+            "hash": "14d9e8bc8b4a9e0118d77c32266f76d461f09b40342eb23752960bd89f59929d"
+        },
+        "arm64": {
+            "url": "https://github.com/herdrdev/herdr/releases/download/v0.9.5/herdr-linux-aarch64#/herdr",
+            "hash": "17d7536f2da50859523680ef279dffcac8e4a235f4e46fe8da6c2ec44141897c"
+        }
+    },
+    "bin": "herdr",
+    "checkver": {
+        "github": "https://github.com/herdrdev/herdr",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/herdrdev/herdr/releases/download/$matchTag/herdr-linux-x86_64#/herdr"
+            },
+            "arm64": {
+                "url": "https://github.com/herdrdev/herdr/releases/download/$matchTag/herdr-linux-aarch64#/herdr"
+            }
+        }
+    }
+}
