@@ -236,8 +236,8 @@ def validate_manifest(document):
             relative(binaries, "bin")
             binaries = binaries if isinstance(binaries, list) else [binaries]
             names = [PurePosixPath(value).name for value in binaries]
-            require(len(names) == len(set(names)) and "scoop" not in names,
-                    "duplicate or reserved executable basename")
+            require(len(names) == len(set(names)),
+                    "duplicate executable basename")
     for field in ("extract_dir", "extract_to", "bin"):
         if field in document:
             relative(document[field], field)

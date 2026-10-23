@@ -1,0 +1,35 @@
+{
+    "version": "0.0.2",
+    "description": "User-scoped Linux package manager",
+    "homepage": "https://github.com/zhzy0077/scoop-linux",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.2/scoop-x86_64-unknown-linux-gnu#/scoop",
+            "hash": "e7cafcf3064257704975e0714e1901f53723c73385fd57227dd6e735654a5f32"
+        },
+        "arm64": {
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.2/scoop-aarch64-unknown-linux-gnu#/scoop",
+            "hash": "96d79370c38b491dca5d265ef19e03f34e2ad62d9f1ab9a6ccfdabc80b05d11b"
+        }
+    },
+    "bin": "scoop",
+    "notes": "Requires glibc 2.39 or newer and libgcc_s.so.1.",
+    "checkver": {
+        "github": "https://github.com/zhzy0077/scoop-linux",
+        "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-x86_64-unknown-linux-gnu#/scoop"
+            },
+            "arm64": {
+                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-aarch64-unknown-linux-gnu#/scoop"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}
