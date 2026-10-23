@@ -5,26 +5,15 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-x86_64-unknown-linux-musl.tar.gz",
-            "hash": "90dd0b03b28afcb7fa733a4f73b413db2916a47347efd43fb669cc1c774ee8e4",
-            "bin": [
-                [
-                    "codex-x86_64-unknown-linux-musl",
-                    "codex"
-                ]
-            ]
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
+            "hash": "3ec55053109608d5038f7e50750f7d25f768dfd740fef071aa710e2559b63aac"
         },
         "arm64": {
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-aarch64-unknown-linux-musl.tar.gz",
-            "hash": "29a507a2a3fd8f6cd94b96b762d281d299d15d7902dee6132d314b78cf9108eb",
-            "bin": [
-                [
-                    "codex-aarch64-unknown-linux-musl",
-                    "codex"
-                ]
-            ]
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
+            "hash": "5918add6c7e9cf1e14a9af1b4c0f4bf1d24a43903faac26df5dc4c019ea91bd5"
         }
     },
+    "bin": "bin/codex",
     "checkver": {
         "github": "https://github.com/openai/codex",
         "regex": "^(?=(?<tag>.*)$)rust-v(\\d+(?:\\.\\d+)*)$"
@@ -32,11 +21,14 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-x86_64-unknown-linux-musl.tar.gz"
+                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-package-x86_64-unknown-linux-musl.tar.gz"
             },
             "arm64": {
-                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-aarch64-unknown-linux-musl.tar.gz"
+                "url": "https://github.com/openai/codex/releases/download/$matchTag/codex-package-aarch64-unknown-linux-musl.tar.gz"
             }
+        },
+        "hash": {
+            "url": "$baseurl/codex-package_SHA256SUMS"
         }
     }
 }
