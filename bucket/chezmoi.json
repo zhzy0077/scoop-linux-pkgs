@@ -1,0 +1,34 @@
+{
+    "version": "2.73.3",
+    "description": "Dotfile manager that keeps your home directory in Git",
+    "homepage": "https://github.com/twpayne/chezmoi",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.73.3/chezmoi_2.73.3_linux_amd64.tar.gz",
+            "hash": "6e5827598cbfc02d132b04f95b5ea10efb5b79230e2a4a0e52df4af144a8ee9f"
+        },
+        "arm64": {
+            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.73.3/chezmoi_2.73.3_linux_arm64.tar.gz",
+            "hash": "c9e6a6e71eb5291018e161a8426d7c313cd2e8553c2ca4029511fec2a33bc28c"
+        }
+    },
+    "bin": "chezmoi",
+    "checkver": {
+        "github": "https://github.com/twpayne/chezmoi",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/twpayne/chezmoi/releases/download/$matchTag/chezmoi_$version_linux_amd64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/twpayne/chezmoi/releases/download/$matchTag/chezmoi_$version_linux_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/chezmoi_$version_checksums.txt"
+        }
+    }
+}
