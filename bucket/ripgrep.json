@@ -1,6 +1,6 @@
 {
     "version": "15.2.0",
-    "description": "ripgrep: portable upstream Linux CLI release",
+    "description": "Recursive regex search that honors .gitignore",
     "homepage": "https://github.com/BurntSushi/ripgrep",
     "license": "Unlicense|MIT",
     "architecture": {

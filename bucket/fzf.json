@@ -1,6 +1,6 @@
 {
     "version": "0.74.5",
-    "description": "fzf: portable upstream Linux CLI release",
+    "description": "General-purpose command-line fuzzy finder",
     "homepage": "https://github.com/junegunn/fzf",
     "license": "MIT",
     "architecture": {

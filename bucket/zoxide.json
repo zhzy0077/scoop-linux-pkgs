@@ -1,6 +1,6 @@
 {
     "version": "0.10.0",
-    "description": "zoxide: portable upstream Linux CLI release",
+    "description": "Smarter cd command that learns your most-used directories",
     "homepage": "https://github.com/ajeetdsouza/zoxide",
     "license": "MIT",
     "architecture": {

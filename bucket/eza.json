@@ -1,6 +1,6 @@
 {
     "version": "0.23.5",
-    "description": "eza: portable upstream Linux CLI release",
+    "description": "Modern replacement for ls, with colors, icons, and Git support",
     "homepage": "https://github.com/eza-community/eza",
     "license": "MIT",
     "architecture": {

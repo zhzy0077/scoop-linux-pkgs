@@ -1,6 +1,6 @@
 {
     "version": "4.54.1",
-    "description": "yq: portable upstream Linux CLI release",
+    "description": "Command-line processor for YAML, JSON, XML, CSV, and TOML",
     "homepage": "https://github.com/mikefarah/yq",
     "license": "MIT",
     "architecture": {

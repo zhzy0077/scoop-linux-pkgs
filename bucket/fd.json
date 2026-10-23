@@ -1,6 +1,6 @@
 {
     "version": "10.5.0",
-    "description": "fd: portable upstream Linux CLI release",
+    "description": "Simple, fast alternative to find",
     "homepage": "https://github.com/sharkdp/fd",
     "license": "MIT|Apache-2.0",
     "architecture": {

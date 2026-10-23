@@ -1,6 +1,6 @@
 {
     "version": "1.59.0",
-    "description": "just: portable upstream Linux CLI release",
+    "description": "Command runner for project-specific recipes",
     "homepage": "https://github.com/casey/just",
     "license": "CC0-1.0",
     "architecture": {

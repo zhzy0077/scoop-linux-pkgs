@@ -1,6 +1,6 @@
 {
     "version": "1.8.2",
-    "description": "jq: portable upstream Linux CLI release",
+    "description": "Command-line JSON processor",
     "homepage": "https://github.com/jqlang/jq",
     "license": "MIT",
     "architecture": {

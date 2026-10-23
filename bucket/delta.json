@@ -1,6 +1,6 @@
 {
     "version": "0.20.1",
-    "description": "delta: portable upstream Linux CLI release",
+    "description": "Syntax-highlighting pager for git, diff, and grep output",
     "homepage": "https://github.com/dandavison/delta",
     "license": "MIT",
     "architecture": {
