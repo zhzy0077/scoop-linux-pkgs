@@ -14,7 +14,6 @@
         }
     },
     "bin": "scoop",
-    "notes": "Requires glibc 2.39 or newer and libgcc_s.so.1.",
     "checkver": {
         "github": "https://github.com/zhzy0077/scoop-linux",
         "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
