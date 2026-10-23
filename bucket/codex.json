@@ -7,12 +7,22 @@
         "64bit": {
             "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-x86_64-unknown-linux-musl.tar.gz",
             "hash": "90dd0b03b28afcb7fa733a4f73b413db2916a47347efd43fb669cc1c774ee8e4",
-            "bin": "codex-x86_64-unknown-linux-musl"
+            "bin": [
+                [
+                    "codex-x86_64-unknown-linux-musl",
+                    "codex"
+                ]
+            ]
         },
         "arm64": {
             "url": "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-aarch64-unknown-linux-musl.tar.gz",
             "hash": "29a507a2a3fd8f6cd94b96b762d281d299d15d7902dee6132d314b78cf9108eb",
-            "bin": "codex-aarch64-unknown-linux-musl"
+            "bin": [
+                [
+                    "codex-aarch64-unknown-linux-musl",
+                    "codex"
+                ]
+            ]
         }
     },
     "checkver": {

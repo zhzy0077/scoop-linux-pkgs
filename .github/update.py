@@ -7,6 +7,7 @@ executed or extracted. A package is written only after every declared target pas
 from __future__ import annotations
 
 import argparse
+import shlex
 import copy
 import hashlib
 import html
@@ -201,6 +202,28 @@ def relative(value, label):
                 and not any(ord(c) < 32 for c in item), f"unsafe {label}: {item!r}")
 
 
+def validate_binaries(binaries):
+    entries = binaries if isinstance(binaries, list) else [binaries]
+    require(entries, "bin must contain shim definitions")
+    names = []
+    for entry in entries:
+        fields = entry if isinstance(entry, list) else [entry]
+        require(fields and all(isinstance(field, str) and "\0" not in field for field in fields),
+                "shim definition fields must be strings without NUL bytes")
+        target = fields[0].replace("\\", "/")
+        require(target and not target.endswith("/"), "shim target must name an executable")
+        if not PurePosixPath(target).is_absolute():
+            relative(target, "bin target")
+        basename = PurePosixPath(target).name
+        default = basename.rsplit(".", 1)[0] if "." in basename else basename
+        name = (fields[1] if len(fields) > 1 and fields[1] else default).lower()
+        relative(name, "shim name")
+        require("/" not in name, "shim name must be a single basename")
+        shlex.split(" ".join(fields[2:]), comments=True)
+        names.append(name)
+    require(len(names) == len(set(names)), "duplicate shim name")
+
+
 def validate_manifest(document):
     require(isinstance(document, dict) and isinstance(document.get("version"), str)
             and VERSION.fullmatch(document["version"]), "invalid manifest version")
@@ -228,19 +251,18 @@ def validate_manifest(document):
             https(url)
             require(isinstance(digest, str) and SHA256.fullmatch(digest.removeprefix("sha256:")),
                     "SHA-256 required for each artifact")
-        for field in ("extract_dir", "extract_to", "bin"):
+        for field in ("extract_dir", "extract_to"):
             if field in slot:
                 relative(slot[field], field)
         binaries = slot.get("bin", document.get("bin"))
         if binaries is not None:
-            relative(binaries, "bin")
-            binaries = binaries if isinstance(binaries, list) else [binaries]
-            names = [PurePosixPath(value).name for value in binaries]
-            require(len(names) == len(set(names)),
-                    "duplicate executable basename")
-    for field in ("extract_dir", "extract_to", "bin"):
+            validate_binaries(binaries)
+    for field in ("extract_dir", "extract_to"):
         if field in document:
             relative(document[field], field)
+
+    if "bin" in document:
+        validate_binaries(document["bin"])
 
 
 def exact_asset(url, release, repo):
@@ -346,7 +368,7 @@ def build_update(document, client):
         assets = [exact_asset(url, release, repo) for url in urls]
         plans.append((arch, specific, isinstance(template, list), assets, configs))
     # Every declared asset is resolved before network hashing or any manifest write.
-    for field in ("extract_dir", "extract_to", "bin"):
+    for field in ("extract_dir", "extract_to"):
         if field in auto:
             result[field] = render(auto[field], substitutions)
     for arch, specific, array, assets, configs in plans:
