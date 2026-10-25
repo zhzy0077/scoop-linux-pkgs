@@ -1,0 +1,34 @@
+{
+    "version": "1.22.10",
+    "description": "Julia version manager that installs, updates and switches Julia releases",
+    "homepage": "https://github.com/JuliaLang/juliaup",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/JuliaLang/juliaup/releases/download/v1.22.10/juliaup-1.22.10-x86_64-unknown-linux-musl-portable.tar.gz",
+            "hash": "095698e88e862445befd68bb853b2467f564fb59b69105961a042163c97fa127"
+        },
+        "arm64": {
+            "url": "https://github.com/JuliaLang/juliaup/releases/download/v1.22.10/juliaup-1.22.10-aarch64-unknown-linux-musl-portable.tar.gz",
+            "hash": "fcaa9e6ae1f0ceb11b7f65f2f585d33ca3fb1956c574bfdbfd4d17d16c013b0c"
+        }
+    },
+    "bin": [
+        "juliaup",
+        "julia"
+    ],
+    "checkver": {
+        "github": "https://github.com/JuliaLang/juliaup",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/JuliaLang/juliaup/releases/download/$matchTag/juliaup-$version-x86_64-unknown-linux-musl-portable.tar.gz"
+            },
+            "arm64": {
+                "url": "https://github.com/JuliaLang/juliaup/releases/download/$matchTag/juliaup-$version-aarch64-unknown-linux-musl-portable.tar.gz"
+            }
+        }
+    }
+}
