@@ -1,16 +1,16 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "User-scoped Linux package manager",
     "homepage": "https://github.com/zhzy0077/scoop-linux",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.2/scoop-x86_64-unknown-linux-gnu#/scoop",
-            "hash": "e7cafcf3064257704975e0714e1901f53723c73385fd57227dd6e735654a5f32"
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.3/scoop-x86_64-unknown-linux-gnu#/scoop",
+            "hash": "f5aeed3339999c539723444eb821e8df7772d7ce80979aa0acfe37762c26cfc3"
         },
         "arm64": {
-            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.2/scoop-aarch64-unknown-linux-gnu#/scoop",
-            "hash": "96d79370c38b491dca5d265ef19e03f34e2ad62d9f1ab9a6ccfdabc80b05d11b"
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.3/scoop-aarch64-unknown-linux-gnu#/scoop",
+            "hash": "077c2798ea4eecb5d0082cc2837482d6de7c2c202e61efa776143778250a8b2d"
         }
     },
     "bin": "scoop",
