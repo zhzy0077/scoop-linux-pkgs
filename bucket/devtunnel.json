@@ -1,0 +1,17 @@
+{
+    "version": "1.0.2115+e16833f284",
+    "description": "Microsoft Dev Tunnels CLI: create and manage tunnels to local development machines",
+    "homepage": "https://github.com/Microsoft/dev-tunnels",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://aka.ms/TunnelsCliDownload/linux-x64#/devtunnel",
+            "hash": "723d6aebdc226064aef321258fb17c8a2770c9cc2bd05004c0fb83e72b302c3f"
+        },
+        "arm64": {
+            "url": "https://aka.ms/TunnelsCliDownload/linux-arm64#/devtunnel",
+            "hash": "b537f270a55d57f23b7621cec0b09806aa9ada119713b33e9255284179b76bde"
+        }
+    },
+    "bin": "devtunnel"
+}
