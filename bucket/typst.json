@@ -1,0 +1,33 @@
+{
+    "version": "0.15.1",
+    "description": "Powerful typesetting for the modern internet",
+    "homepage": "https://github.com/typst/typst",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz",
+            "hash": "a6d077d0a95eed5a2eba715b2dae06be954f624ccbf85758a03f389ded33118c",
+            "extract_dir": "typst-x86_64-unknown-linux-musl"
+        },
+        "arm64": {
+            "url": "https://github.com/typst/typst/releases/download/v0.15.1/typst-aarch64-unknown-linux-musl.tar.xz",
+            "hash": "5aa8d74a3d906e60ea12a66ac2f37f8eef1b14cbad7182a745e393a10c23dcee",
+            "extract_dir": "typst-aarch64-unknown-linux-musl"
+        }
+    },
+    "bin": "typst",
+    "checkver": {
+        "github": "https://github.com/typst/typst",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/typst/typst/releases/download/$matchTag/typst-x86_64-unknown-linux-musl.tar.xz"
+            },
+            "arm64": {
+                "url": "https://github.com/typst/typst/releases/download/$matchTag/typst-aarch64-unknown-linux-musl.tar.xz"
+            }
+        }
+    }
+}
