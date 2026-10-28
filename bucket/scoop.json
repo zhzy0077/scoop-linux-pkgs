@@ -1,34 +1,34 @@
 {
-    "version": "0.0.3",
-    "description": "User-scoped Linux package manager",
-    "homepage": "https://github.com/zhzy0077/scoop-linux",
-    "license": "Unknown",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.3/scoop-x86_64-unknown-linux-gnu#/scoop",
-            "hash": "f5aeed3339999c539723444eb821e8df7772d7ce80979aa0acfe37762c26cfc3"
-        },
-        "arm64": {
-            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.3/scoop-aarch64-unknown-linux-gnu#/scoop",
-            "hash": "077c2798ea4eecb5d0082cc2837482d6de7c2c202e61efa776143778250a8b2d"
-        }
+  "version": "0.0.4",
+  "description": "User-scoped Linux package manager",
+  "homepage": "https://github.com/zhzy0077/scoop-linux",
+  "license": "Unknown",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.4/scoop-x86_64-unknown-linux-gnu#/scoop",
+      "hash": "ac6f413ef6fb216c58798fb5d1222f4163c9fbdeb5bec9a8cae0bad9ff7105d1"
     },
-    "bin": "scoop",
-    "checkver": {
-        "github": "https://github.com/zhzy0077/scoop-linux",
-        "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
-    },
-    "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-x86_64-unknown-linux-gnu#/scoop"
-            },
-            "arm64": {
-                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-aarch64-unknown-linux-gnu#/scoop"
-            }
-        },
-        "hash": {
-            "url": "$baseurl/SHA256SUMS"
-        }
+    "arm64": {
+      "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.4/scoop-aarch64-unknown-linux-gnu#/scoop",
+      "hash": "2d62386004a87a1357a3c345cf5dfb3900b5c7168e5a1ca2cd1813340951b2a6"
     }
+  },
+  "bin": "scoop",
+  "checkver": {
+    "github": "https://github.com/zhzy0077/scoop-linux",
+    "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-x86_64-unknown-linux-gnu#/scoop"
+      },
+      "arm64": {
+        "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-aarch64-unknown-linux-gnu#/scoop"
+      }
+    },
+    "hash": {
+      "url": "$baseurl/SHA256SUMS"
+    }
+  }
 }
