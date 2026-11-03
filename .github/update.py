@@ -96,6 +96,17 @@ class Client:
     def release(self, repository):
         return json.loads(self.text(f"https://api.github.com/repos/{repository}/releases/latest"))
 
+    def releases(self, repository, pages=10):
+        result = []
+        for page in range(1, pages + 1):
+            data = json.loads(self.text(
+                f"https://api.github.com/repos/{repository}/releases?per_page=100&page={page}"))
+            require(isinstance(data, list), f"malformed GitHub release list on page {page}")
+            result += data
+            if len(data) < 100:
+                break
+        return result
+
     def digest(self, url):
         if url not in self.digest_cache:
             digest = hashlib.sha256()
@@ -115,19 +126,23 @@ class Client:
 def repository(checkver, homepage):
     if checkver == "github":
         url, regex = homepage, r"^[vV]?(\d+(?:\.\d+)*)$"
+        policy = "latest"
     else:
-        require(isinstance(checkver, dict) and set(checkver) <= {"github", "regex", "re"},
-                "checkver supports github with optional regex/re only")
+        require(isinstance(checkver, dict) and set(checkver) <= {"github", "regex", "re", "policy"},
+                "checkver supports github with optional regex/re/policy only")
         url = checkver.get("github")
         regex = checkver.get("regex", checkver.get("re", r"^[vV]?(\d+(?:\.\d+)*)$"))
+        policy = checkver.get("policy", "latest")
     require(isinstance(url, str) and isinstance(regex, str), "invalid GitHub checkver")
+    require(isinstance(policy, str) and policy in ("latest", "release_max"),
+            "checkver.policy must be 'latest' or 'release_max'")
     parsed = https(url)
     require(parsed.hostname == "github.com" and not parsed.query and not parsed.fragment,
             "checkver.github must identify a GitHub repository")
     parts = parsed.path.strip("/").removesuffix(".git").split("/")
     require(len(parts) == 2 and all(re.fullmatch(r"[A-Za-z0-9_.-]+", p) for p in parts),
             f"invalid GitHub repository: {url}")
-    return "/".join(parts), regex
+    return "/".join(parts), regex, policy
 
 
 def capture_version(tag, pattern):
@@ -324,10 +339,33 @@ def publisher_hash(config, substitutions, client):
     return digests, source
 
 
+def stable_release(client, repository, pattern):
+    # Selects the highest non-draft, non-prerelease release whose tag matches
+    # the checkver regex, independent of the release GitHub marks as latest.
+    best, version = None, None
+    for release in client.releases(repository):
+        if not isinstance(release, dict) or release.get("draft") or release.get("prerelease"):
+            continue
+        tag = release.get("tag_name")
+        if not isinstance(tag, str) or not tag:
+            continue
+        try:
+            candidate, _ = capture_version(tag, pattern)
+        except ValueError:
+            continue
+        if best is None or compare_versions(candidate, version) > 0:
+            best, version = release, candidate
+    require(best is not None, "no non-draft, non-prerelease release matches the checkver regex")
+    return best
+
+
 def build_update(document, client):
     validate_manifest(document)
-    repo, pattern = repository(document["checkver"], document["homepage"])
-    release = client.release(repo)
+    repo, pattern, policy = repository(document["checkver"], document["homepage"])
+    if policy == "release_max":
+        release = stable_release(client, repo, pattern)
+    else:
+        release = client.release(repo)
     require(isinstance(release, dict) and isinstance(release.get("draft"), bool)
             and isinstance(release.get("prerelease"), bool), "malformed GitHub release")
     if release["draft"] or release["prerelease"]:

@@ -16,6 +16,7 @@
     "bin": "opencode",
     "checkver": {
         "github": "https://github.com/anomalyco/opencode",
+        "max": true,
         "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
     },
     "autoupdate": {
