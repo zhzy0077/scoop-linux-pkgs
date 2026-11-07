@@ -1,18 +1,18 @@
 {
-    "version": "10.5.1",
+    "version": "10.5.2",
     "description": "Simple, fast alternative to find",
     "homepage": "https://github.com/sharkdp/fd",
     "license": "MIT|Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd-v10.5.1-x86_64-unknown-linux-gnu.tar.gz",
-            "hash": "d0e2b438c8c4946955f05e4cf51452deada8f7ed509e1ccd60235a468622716f",
-            "extract_dir": "fd-v10.5.1-x86_64-unknown-linux-gnu"
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.2/fd-v10.5.2-x86_64-unknown-linux-gnu.tar.gz",
+            "hash": "985e24041e9ef6e9a38e9e088743405dde23d7220aa96740f091862167d9ff28",
+            "extract_dir": "fd-v10.5.2-x86_64-unknown-linux-gnu"
         },
         "arm64": {
-            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.1/fd-v10.5.1-aarch64-unknown-linux-gnu.tar.gz",
-            "hash": "86800e7dbe423cc7ed14076f40983f1bc739a299ca9a5ae5604cf261a87b3865",
-            "extract_dir": "fd-v10.5.1-aarch64-unknown-linux-gnu"
+            "url": "https://github.com/sharkdp/fd/releases/download/v10.5.2/fd-v10.5.2-aarch64-unknown-linux-gnu.tar.gz",
+            "hash": "4b144f38bd7352cd4c95020b58e8e575476e60edcdf1dc5e0733e3d01efba6dd",
+            "extract_dir": "fd-v10.5.2-aarch64-unknown-linux-gnu"
         }
     },
     "bin": "fd",
