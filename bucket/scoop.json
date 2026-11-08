@@ -1,34 +1,34 @@
 {
-  "version": "0.0.4",
-  "description": "User-scoped Linux package manager",
-  "homepage": "https://github.com/zhzy0077/scoop-linux",
-  "license": "Unknown",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.4/scoop-x86_64-unknown-linux-gnu#/scoop",
-      "hash": "ac6f413ef6fb216c58798fb5d1222f4163c9fbdeb5bec9a8cae0bad9ff7105d1"
-    },
-    "arm64": {
-      "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.4/scoop-aarch64-unknown-linux-gnu#/scoop",
-      "hash": "2d62386004a87a1357a3c345cf5dfb3900b5c7168e5a1ca2cd1813340951b2a6"
-    }
-  },
-  "bin": "scoop",
-  "checkver": {
-    "github": "https://github.com/zhzy0077/scoop-linux",
-    "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
-  },
-  "autoupdate": {
+    "version": "0.0.5",
+    "description": "User-scoped Linux package manager",
+    "homepage": "https://github.com/zhzy0077/scoop-linux",
+    "license": "Unknown",
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-x86_64-unknown-linux-gnu#/scoop"
-      },
-      "arm64": {
-        "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-aarch64-unknown-linux-gnu#/scoop"
-      }
+        "64bit": {
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.5/scoop-x86_64-unknown-linux-gnu#/scoop",
+            "hash": "beb762697725e4ae82369eee67e7dac20aa062f9ead92c1912302ea62c091e7e"
+        },
+        "arm64": {
+            "url": "https://github.com/zhzy0077/scoop-linux/releases/download/0.0.5/scoop-aarch64-unknown-linux-gnu#/scoop",
+            "hash": "e1bbc0410bce3112bf686d6495a7f19fb05176c7f70940c4da305198f186fa95"
+        }
     },
-    "hash": {
-      "url": "$baseurl/SHA256SUMS"
+    "bin": "scoop",
+    "checkver": {
+        "github": "https://github.com/zhzy0077/scoop-linux",
+        "regex": "^(?=(?<tag>.*)$)v?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-x86_64-unknown-linux-gnu#/scoop"
+            },
+            "arm64": {
+                "url": "https://github.com/zhzy0077/scoop-linux/releases/download/$matchTag/scoop-aarch64-unknown-linux-gnu#/scoop"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
     }
-  }
 }
