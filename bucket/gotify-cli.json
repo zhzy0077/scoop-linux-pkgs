@@ -1,0 +1,31 @@
+{
+    "version": "2.4.0",
+    "description": "Command line client for pushing messages to a Gotify server",
+    "homepage": "https://github.com/gotify/cli",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/gotify/cli/releases/download/v2.4.0/gotify-cli-linux-amd64#/gotify",
+            "hash": "251b8d72eddf11317a63ceefd98f655065c62a5ac9a632c5d09709bd747d02af"
+        },
+        "arm64": {
+            "url": "https://github.com/gotify/cli/releases/download/v2.4.0/gotify-cli-linux-arm64#/gotify",
+            "hash": "46353135090c1116f3609e8e4ae99b3b3127f98bf9441566a7aff7eb79343f17"
+        }
+    },
+    "bin": "gotify",
+    "checkver": {
+        "github": "https://github.com/gotify/cli",
+        "regex": "^(?=(?<tag>.*)$)[vV]?(\\d+(?:\\.\\d+)*)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/gotify/cli/releases/download/$matchTag/gotify-cli-linux-amd64#/gotify"
+            },
+            "arm64": {
+                "url": "https://github.com/gotify/cli/releases/download/$matchTag/gotify-cli-linux-arm64#/gotify"
+            }
+        }
+    }
+}
