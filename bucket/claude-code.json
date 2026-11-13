@@ -1,16 +1,16 @@
 {
-    "version": "2.1.322",
+    "version": "2.1.323",
     "description": "Claude Code: Anthropic's agentic coding tool for the terminal",
     "homepage": "https://github.com/anthropics/claude-code",
     "license": "Proprietary",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/anthropics/claude-code/releases/download/v2.1.322/claude-linux-x64.tar.gz",
-            "hash": "3d2bc5ae54d4d4cd63510e9fcca5b6d48d2b18806708df8c8f691aa486c5dca8"
+            "url": "https://github.com/anthropics/claude-code/releases/download/v2.1.323/claude-linux-x64.tar.gz",
+            "hash": "522255678548859b9799b7b098c03a3aa286c9a9ede01957e35f4713ccc43631"
         },
         "arm64": {
-            "url": "https://github.com/anthropics/claude-code/releases/download/v2.1.322/claude-linux-arm64.tar.gz",
-            "hash": "65c1ad35e804ef463f34585d0c080afd4bf2e9018c7bad1f29efb8df4e9c3750"
+            "url": "https://github.com/anthropics/claude-code/releases/download/v2.1.323/claude-linux-arm64.tar.gz",
+            "hash": "808fa9c71caf7ebed9383d3e38bee6e7dd2fa80877ac12c6c27438786295099e"
         }
     },
     "bin": "claude",
