@@ -1,16 +1,16 @@
 {
-    "version": "2.2.7",
+    "version": "2.3.0",
     "description": "The open source coding agent for the terminal",
     "homepage": "https://github.com/anomalyco/opencode",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/anomalyco/opencode/releases/download/v2.2.7/opencode-linux-x64.tar.gz",
-            "hash": "89a6cee227b54bc011179c528a5e63176032462b1a5e21723b616801cddc2ca7"
+            "url": "https://github.com/anomalyco/opencode/releases/download/v2.3.0/opencode-linux-x64.tar.gz",
+            "hash": "fc0f81522aceeabac47693d88389efa2bc517ce74c2c38fd6967819fcc6e4d3b"
         },
         "arm64": {
-            "url": "https://github.com/anomalyco/opencode/releases/download/v2.2.7/opencode-linux-arm64.tar.gz",
-            "hash": "c1682057f0815cb2abdd6e00305f1146ebaf1c167f0335cdb74ddc80008120e7"
+            "url": "https://github.com/anomalyco/opencode/releases/download/v2.3.0/opencode-linux-arm64.tar.gz",
+            "hash": "3207fb5cdec448d479242c0f1a14f4f7bdfcad3a79209b5eb8f9003725e93711"
         }
     },
     "bin": "opencode",
