@@ -1,16 +1,16 @@
 {
-    "version": "1.0.111",
+    "version": "1.0.112",
     "description": "GitHub Copilot CLI: AI-powered coding assistance in your terminal",
     "homepage": "https://github.com/github/copilot-cli",
     "license": "Proprietary",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/github/copilot-cli/releases/download/v1.0.111/copilot-linux-x64.tar.gz",
-            "hash": "33ea4378ccc829bc18520648ad97c8fb1d9de4ba478ebff8eb2ad890aa0a95c8"
+            "url": "https://github.com/github/copilot-cli/releases/download/v1.0.112/copilot-linux-x64.tar.gz",
+            "hash": "dfe7e59acf04f0b7f59b024ea9db101a9246503e9bf7152eb668fbb2a469b151"
         },
         "arm64": {
-            "url": "https://github.com/github/copilot-cli/releases/download/v1.0.111/copilot-linux-arm64.tar.gz",
-            "hash": "203ffacb01d40383d34427fac7577eb7c847d77cd88b45b2c7ab560e044d9613"
+            "url": "https://github.com/github/copilot-cli/releases/download/v1.0.112/copilot-linux-arm64.tar.gz",
+            "hash": "491d18303505935675dc20987ef0c5f3ae899f81e66c53d567ad97a8b03e504e"
         }
     },
     "bin": "copilot",
