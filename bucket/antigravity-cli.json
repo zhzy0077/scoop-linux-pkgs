@@ -1,16 +1,16 @@
 {
-    "version": "1.5.8",
+    "version": "1.5.9",
     "description": "Antigravity CLI: agentic coding tool for the terminal",
     "homepage": "https://github.com/google-antigravity/antigravity-cli",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/google-antigravity/antigravity-cli/releases/download/1.5.8/agy_cli_linux_x64.tar.gz",
-            "hash": "905d4accfbd61bc00bee84bfaf24c59b85d334cabd786cf99237b66cfe06ab98"
+            "url": "https://github.com/google-antigravity/antigravity-cli/releases/download/1.5.9/agy_cli_linux_x64.tar.gz",
+            "hash": "8b1f5e56779f2434a0af36f1b715a8392a084de550f8c68bc79821f95fabf3fa"
         },
         "arm64": {
-            "url": "https://github.com/google-antigravity/antigravity-cli/releases/download/1.5.8/agy_cli_linux_arm64.tar.gz",
-            "hash": "0ca407357661aa244fbc3b0e79a1d1d2623b2ca1515d2e2f77a801c3676bd562"
+            "url": "https://github.com/google-antigravity/antigravity-cli/releases/download/1.5.9/agy_cli_linux_arm64.tar.gz",
+            "hash": "3a18c238c7ee6661e43df7e824a7d4c1bed78aeeda09430921a0f1dbfe825bca"
         }
     },
     "bin": "antigravity",
