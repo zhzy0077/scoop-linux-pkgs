@@ -1,16 +1,16 @@
 {
-    "version": "0.169.1",
+    "version": "0.170.0",
     "description": "Codex CLI: OpenAI's coding agent for the terminal",
     "homepage": "https://github.com/openai/codex",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.169.1/codex-package-x86_64-unknown-linux-musl.tar.gz",
-            "hash": "738df5b3182e2b858a48143f0c2fff288d8dd200330dadfe4c5c9f3eac7e2244"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.170.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
+            "hash": "a77ff87be7ba809d715728270a78f5ce3527dc07529416d1ef8929b90b8475eb"
         },
         "arm64": {
-            "url": "https://github.com/openai/codex/releases/download/rust-v0.169.1/codex-package-aarch64-unknown-linux-musl.tar.gz",
-            "hash": "3de502ad37d6f58e4dbc917d76ccbc8f3c16a4084cfaa78afadaf6c86559bcec"
+            "url": "https://github.com/openai/codex/releases/download/rust-v0.170.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
+            "hash": "3f7e1ae38c4fe27322e082b855e8eec936d08fa538d62b71c07e2a53f34e8847"
         }
     },
     "bin": "bin/codex",
