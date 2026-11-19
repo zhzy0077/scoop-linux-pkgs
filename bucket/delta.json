@@ -1,18 +1,18 @@
 {
-    "version": "0.21.1",
+    "version": "0.21.2",
     "description": "Syntax-highlighting pager for git, diff, and grep output",
     "homepage": "https://github.com/dandavison/delta",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dandavison/delta/releases/download/0.21.1/delta-0.21.1-x86_64-unknown-linux-musl.tar.gz",
-            "hash": "5cdb719bf6f7c7503ef8bcf181a31577eeca58a8167234f0955f48dd4a92e989",
-            "extract_dir": "delta-0.21.1-x86_64-unknown-linux-musl"
+            "url": "https://github.com/dandavison/delta/releases/download/0.21.2/delta-0.21.2-x86_64-unknown-linux-musl.tar.gz",
+            "hash": "d4c55c9b9991c308cad84412e8a8afdc990779e4dd021f6ebb277a4249719b9f",
+            "extract_dir": "delta-0.21.2-x86_64-unknown-linux-musl"
         },
         "arm64": {
-            "url": "https://github.com/dandavison/delta/releases/download/0.21.1/delta-0.21.1-aarch64-unknown-linux-gnu.tar.gz",
-            "hash": "efe38626967f550c1d3bbe2014990dff5c8028a0a65a3f9b9b6c4a3bb53bfa28",
-            "extract_dir": "delta-0.21.1-aarch64-unknown-linux-gnu"
+            "url": "https://github.com/dandavison/delta/releases/download/0.21.2/delta-0.21.2-aarch64-unknown-linux-gnu.tar.gz",
+            "hash": "36dca3ddb293d2fa635aa2bf9c53c0ba2d38dcd749290d81c6685974cf3799c4",
+            "extract_dir": "delta-0.21.2-aarch64-unknown-linux-gnu"
         }
     },
     "bin": "delta",
