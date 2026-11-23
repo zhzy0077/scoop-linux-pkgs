@@ -1,16 +1,16 @@
 {
-    "version": "2.74.1",
+    "version": "2.74.2",
     "description": "Dotfile manager that keeps your home directory in Git",
     "homepage": "https://github.com/twpayne/chezmoi",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.1/chezmoi_2.74.1_linux_amd64.tar.gz",
-            "hash": "ae01c66b1a6dbf563667c63fbbd9986b3cfa3c98dd266ddee732f63e8af2e9d1"
+            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.2/chezmoi_2.74.2_linux_amd64.tar.gz",
+            "hash": "5f2024119a1860f18f2243b892dd43a79f0fefe2ebef9786ee143f4d5fd69ccb"
         },
         "arm64": {
-            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.1/chezmoi_2.74.1_linux_arm64.tar.gz",
-            "hash": "8c62619c4303770342e7c7e75d168b6cc6efee4ad5e4b994980de7cf794d68e2"
+            "url": "https://github.com/twpayne/chezmoi/releases/download/v2.74.2/chezmoi_2.74.2_linux_arm64.tar.gz",
+            "hash": "bb1521dd02aff3967d61937213110e79ddd6e181e0856cf51e80dba01fda245f"
         }
     },
     "bin": "chezmoi",
