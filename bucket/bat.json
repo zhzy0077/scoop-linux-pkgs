@@ -1,18 +1,18 @@
 {
-    "version": "0.26.1",
+    "version": "0.27.0",
     "description": "Cat clone with syntax highlighting and Git integration",
     "homepage": "https://github.com/sharkdp/bat",
     "license": "MIT|Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-x86_64-unknown-linux-gnu.tar.gz",
-            "hash": "726f04c8f576a7fd18b7634f1bbf2f915c43494c1c0f013baa3287edb0d5a2a3",
-            "extract_dir": "bat-v0.26.1-x86_64-unknown-linux-gnu"
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.27.0/bat-v0.27.0-x86_64-unknown-linux-gnu.tar.gz",
+            "hash": "0ac86f417ef02d5dc07ac641c84ee979d3781a6482656fa957b3803737955223",
+            "extract_dir": "bat-v0.27.0-x86_64-unknown-linux-gnu"
         },
         "arm64": {
-            "url": "https://github.com/sharkdp/bat/releases/download/v0.26.1/bat-v0.26.1-aarch64-unknown-linux-gnu.tar.gz",
-            "hash": "422eb73e11c854fddd99f5ca8461c2f1d6e6dce0a2a8c3d5daade5ffcb6564aa",
-            "extract_dir": "bat-v0.26.1-aarch64-unknown-linux-gnu"
+            "url": "https://github.com/sharkdp/bat/releases/download/v0.27.0/bat-v0.27.0-aarch64-unknown-linux-gnu.tar.gz",
+            "hash": "42227d776ba1ee48f7f66d666264e36fbfcb826104bea565b740a6240727635e",
+            "extract_dir": "bat-v0.27.0-aarch64-unknown-linux-gnu"
         }
     },
     "bin": "bat",
